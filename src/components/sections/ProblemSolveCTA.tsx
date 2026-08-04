@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/Button";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const ProblemSolveCTA: React.FC = () => {
   return (
@@ -11,20 +12,25 @@ export const ProblemSolveCTA: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-black leading-tight font-inter-tight">
               Could One of These Solve Your Problem?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl font-normal text-[#262626] leading-relaxed sm:leading-[32px] font-inter-tight">
+            <p className="text-lg sm:text-xl lg:text-2xl font-normal text-[#262626] leading-relaxed sm:leading-[36px] font-inter-tight">
               The solutions above were built for real operational challenges. If your organization faces something similar, we can build one shaped around how you work.
             </p>
           </div>
 
           {/* Right Button */}
           <div className="flex-shrink-0 w-full lg:w-auto pt-2 lg:pt-0">
-            <a href="mailto:marketing@powernet.co.id" aria-label="Contact Our Team">
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contact Our Team via WhatsApp"
+            >
               <Button
                 variant="outline-primary"
                 size="large"
-                className="!w-full sm:!w-auto !px-8 !h-[56px] !bg-white !rounded-[8px] !text-lg sm:!text-[20px] !font-medium justify-center"
+                className="!w-full sm:!w-auto !px-8 !h-[56px] !bg-white !rounded-[8px] !text-xl !font-medium justify-center"
                 iconRight={
-                  <i className="fi fi-rr-arrow-up-right text-[#C02026] text-lg ml-1 inline-flex items-center" />
+                  <i className="fi fi-rr-angle-small-right text-[#C02026] text-xl ml-1 inline-flex items-center" />
                 }
               >
                 Contact Our Team

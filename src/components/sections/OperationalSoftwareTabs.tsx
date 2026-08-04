@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface TabItem {
   id: string;
   title: string;
-  imageText: string;
+  imageSrc: string;
   features: {
     title: string;
     description: string;
@@ -21,7 +22,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
     {
       id: "waste-management",
       title: "Waste Management Supply Chain",
-      imageText: "Waste+Management+Supply+Chain+Dashboard",
+      imageSrc: "/photos/waste-management-dashboard.webp",
       features: [
         {
           title: "End-to-End Waste Traceability",
@@ -44,7 +45,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
     {
       id: "lms",
       title: "Class Learning Management System",
-      imageText: "Class+Learning+Management+System+Dashboard",
+      imageSrc: "/photos/lms-dashboard.webp",
       features: [
         {
           title: "AI-Powered Integrity Scoring",
@@ -67,7 +68,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
     {
       id: "docker-management",
       title: "Open Source Docker Management",
-      imageText: "Open+Source+Docker+Management+Dashboard",
+      imageSrc: "/photos/blockchain-container-dashboard.webp",
       features: [
         {
           title: "Visual Docker Workflows",
@@ -99,7 +100,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black leading-tight sm:leading-[1.2] font-inter-tight tracking-tight">
             Operational Software, Built for the Way You Work
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl font-normal text-[#262626] leading-relaxed sm:leading-[32px] font-inter-tight">
+          <p className="text-lg sm:text-xl lg:text-2xl font-normal text-[#262626] leading-relaxed sm:leading-[36px] font-inter-tight">
             A look at the custom systems we design to remove manual load and keep operations moving.
           </p>
         </div>
@@ -120,7 +121,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
                 aria-controls={`tabpanel-${tab.id}`}
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTabId(tab.id)}
-                className={`flex-1 min-w-[260px] lg:min-w-0 py-3 px-4 rounded-lg text-base sm:text-lg lg:text-[20px] xl:text-[22px] font-normal font-inter-tight transition-all duration-200 text-center whitespace-nowrap leading-snug flex items-center justify-center ${
+                className={`flex-1 min-w-[280px] lg:min-w-0 py-3.5 px-4 rounded-lg text-lg sm:text-xl lg:text-2xl font-normal font-inter-tight transition-all duration-200 text-center whitespace-nowrap leading-snug flex items-center justify-center ${
                   isActive
                     ? "bg-[#F9E9E9] text-[#C02026]"
                     : "bg-[#FCFCFC] text-[#262626] hover:bg-gray-100"
@@ -139,14 +140,12 @@ export const OperationalSoftwareTabs: React.FC = () => {
           aria-labelledby={`tab-${activeTab.id}`}
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center pt-2"
         >
-          {/* Left Column: Dashboard Image Placeholder */}
+          {/* Left Column: Dashboard Image */}
           <div className="lg:col-span-6 flex justify-center">
             <div className="relative w-full max-w-[614px] h-[320px] sm:h-[443px] rounded-xl overflow-hidden border border-[#D9D9D9]">
               <img
-                src={`https://placehold.co/614x443?text=${activeTab.imageText}`}
+                src={activeTab.imageSrc}
                 alt={`${activeTab.title} Operational Dashboard Software Interface`}
-                width={614}
-                height={443}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
@@ -160,7 +159,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
                   <h3 className="text-2xl sm:text-[28px] lg:text-3xl font-semibold text-black font-inter-tight leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-base sm:text-lg lg:text-xl font-normal text-[#262626] leading-relaxed sm:leading-[32px] font-inter-tight">
+                  <p className="text-lg sm:text-xl lg:text-2xl font-normal text-[#262626] leading-relaxed sm:leading-[36px] font-inter-tight">
                     {feature.description}
                   </p>
                 </div>
@@ -168,13 +167,18 @@ export const OperationalSoftwareTabs: React.FC = () => {
             </div>
 
             <div>
-              <a href="#contact-cta" aria-label={activeTab.ctaText}>
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={activeTab.ctaText}
+              >
                 <Button
                   variant="outline-primary"
                   size="large"
-                  className="!w-full sm:!w-auto !px-8 !h-[56px] !rounded-[8px] !text-lg sm:!text-[20px] !font-medium justify-center"
+                  className="!w-full sm:!w-auto !px-8 !h-[56px] !rounded-[8px] !text-xl !font-medium justify-center"
                   iconRight={
-                    <i className="fi fi-rr-arrow-up-right text-[#C02026] text-lg ml-1 inline-flex items-center" />
+                    <i className="fi fi-rr-angle-small-right text-[#C02026] text-xl ml-1 inline-flex items-center" />
                   }
                 >
                   {activeTab.ctaText}

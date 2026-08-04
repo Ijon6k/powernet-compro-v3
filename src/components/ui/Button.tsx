@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
     "outline-primary":
       "bg-white text-[#C02026] border border-[#C02026] hover:bg-[#fff5f5]",
     "outline-accent":
-      "bg-white text-[#B82E59] border border-[#B82E59] hover:bg-[#fff5f7]",
+      "bg-white text-[#C02026] border border-[#C02026] hover:bg-[#fff5f5]",
     ghost:
       "bg-transparent text-[#262626] hover:bg-gray-100 border border-transparent",
   };
@@ -45,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
       {iconRight ? (
         iconRight
       ) : (
-        <i className="fi fi-rr-arrow-right text-current text-sm inline-flex items-center" />
+        <i className="fi fi-rr-angle-small-right text-current text-lg inline-flex items-center" />
       )}
     </button>
   );

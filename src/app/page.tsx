@@ -6,6 +6,7 @@ import { DiscoverySection } from "@/components/sections/DiscoverySection";
 import { BuiltOnUnderstanding } from "@/components/sections/BuiltOnUnderstanding";
 import { OperationalSoftwareTabs } from "@/components/sections/OperationalSoftwareTabs";
 import { Footer } from "@/components/sections/Footer";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function Home() {
   return (
@@ -14,22 +15,34 @@ export default function Home() {
       <Navbar />
 
       {/* 2. Hero Section */}
-      <Hero />
+      <ScrollReveal>
+        <Hero />
+      </ScrollReveal>
 
       {/* 3. Client & Partner Logos */}
-      <ClientLogos />
+      <ScrollReveal>
+        <ClientLogos />
+      </ScrollReveal>
 
       {/* 4. Feature Spotlight: Discovery & Planning */}
-      <DiscoverySection />
+      <ScrollReveal>
+        <DiscoverySection />
+      </ScrollReveal>
 
       {/* 5. 3 Core Pillars: Built on That Understanding */}
-      <BuiltOnUnderstanding />
+      <ScrollReveal>
+        <BuiltOnUnderstanding />
+      </ScrollReveal>
 
       {/* 6. Product Showcase: Operational Software Tabs */}
-      <OperationalSoftwareTabs />
+      <ScrollReveal>
+        <OperationalSoftwareTabs />
+      </ScrollReveal>
 
       {/* 7. Footer (includes CTA Banner & Contact Details) */}
-      <Footer />
+      <ScrollReveal>
+        <Footer />
+      </ScrollReveal>
     </main>
   );
 }

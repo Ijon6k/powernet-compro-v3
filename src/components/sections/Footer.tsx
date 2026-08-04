@@ -1,5 +1,6 @@
 import React from "react";
 import { ProblemSolveCTA } from "@/components/sections/ProblemSolveCTA";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Footer: React.FC = () => {
   return (
@@ -21,7 +22,9 @@ export const Footer: React.FC = () => {
                 <div className="flex items-center gap-4 text-gray-700">
                   <i className="fi fi-rr-phone-call text-gray-900 text-lg sm:text-xl"></i>
                   <a
-                    href="tel:+6281298192099"
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm md:text-base hover:text-[#C02026] transition-colors"
                   >
                     +62 812-9819-2099
