@@ -47,22 +47,22 @@ export const OperationalSoftwareTabs: React.FC = () => {
       imageText: "Class+Learning+Management+System+Dashboard",
       features: [
         {
-          title: "Automated Curriculum & Class Tracking",
+          title: "AI-Powered Integrity Scoring",
           description:
-            "Seamlessly organize course modules, student attendance, and instructor schedules in one centralized platform.",
+            "An automatic Integrity Score flags plagiarism, AI-generated text, and unnatural quiz behavior, so every grade reflects real work.",
         },
         {
-          title: "Interactive Progress & Analytics",
+          title: "Student Profile Analytics",
           description:
-            "Monitor student performance with real-time grading, automated assessment feedback, and learning velocity insights.",
+            "A clear dashboard turns scattered scores into a profile of each student's progress, showing who's thriving and who needs support.",
         },
         {
-          title: "Enterprise LMS Integration",
+          title: "AI-Assisted Assessment",
           description:
-            "Integrate effortlessly with internal HR systems, Zoom, and single sign-on (SSO) authentication providers.",
+            "Automated evaluation checks essays and quizzes in seconds, freeing teachers from hours of manual grading.",
         },
       ],
-      ctaText: "Request LMS Demo",
+      ctaText: "Ask for Pilot Project",
     },
     {
       id: "docker-management",
@@ -70,22 +70,22 @@ export const OperationalSoftwareTabs: React.FC = () => {
       imageText: "Open+Source+Docker+Management+Dashboard",
       features: [
         {
-          title: "Centralized Container Orchestration",
+          title: "Visual Docker Workflows",
           description:
-            "Manage microservices, container deployments, and cluster health from an intuitive visual dashboard.",
+            "Manage containers and deploy Docker Compose projects using guided forms instead of repetitive terminal commands.",
         },
         {
-          title: "Automated CI/CD Deployment Pipelines",
+          title: "Storage Insights & Cleanup",
           description:
-            "Trigger zero-downtime rollouts, automated health checks, and quick environment rollbacks upon Git commits.",
+            "Monitor host and Docker storage usage, then reclaim disk space with integrated cleanup tools.",
         },
         {
-          title: "Resource Utilization & Cost Control",
+          title: "Volume Backup & Recovery",
           description:
-            "Optimize CPU, memory, and storage allocation to eliminate infrastructure waste across dev and production.",
+            "Protect persistent data with built-in Docker volume backup and restore for quick recovery when needed.",
         },
       ],
-      ctaText: "Explore Platform",
+      ctaText: "Ask for Pilot Project",
     },
   ];
 

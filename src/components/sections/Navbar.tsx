@@ -16,11 +16,11 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#D9D9D9]/50 w-full">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 h-[80px] lg:h-[100px] flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-[80px] lg:h-[100px] flex items-center justify-between">
         {/* Left Brand Container */}
-        <div className="flex items-center gap-6 lg:gap-8">
-          {/* Logo Placeholder */}
-          <div className="pr-6 border-r border-[#D9D9D9] flex items-center">
+        <div className="flex items-center gap-8 lg:gap-12 xl:gap-14">
+          {/* Logo Container with vertical divider */}
+          <div className="pr-8 lg:pr-12 border-r border-[#D9D9D9] flex items-center h-10 lg:h-12">
             {/* Logo image with exact dimensions specified by Figma design (181x44) */}
             <img
               src="https://placehold.co/181x44?text=POWERNET"
@@ -32,12 +32,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-2">
+          <nav className="hidden xl:flex items-center gap-8 xl:gap-12 2xl:gap-[56px]">
             {navLinks.map((link, idx) => (
               <a
                 key={idx}
                 href={link.href}
-                className="px-3 py-2 text-lg lg:text-[20px] font-normal text-[#262626] font-inter-tight hover:text-[#C02026] flex items-center gap-1.5 transition-colors"
+                className="text-base sm:text-lg lg:text-[20px] font-normal text-[#262626] font-inter-tight hover:text-[#C02026] flex items-center gap-2 transition-colors whitespace-nowrap"
               >
                 <span>{link.label}</span>
                 {link.hasDropdown && (
