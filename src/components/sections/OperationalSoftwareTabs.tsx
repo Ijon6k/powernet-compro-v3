@@ -105,11 +105,22 @@ export const OperationalSoftwareTabs: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Buttons Container - Single line text, clean height matching Figma */}
+        {/*
+          AI NOTE FOR FUTURE SESSIONS / PM REVIEW:
+          - CURRENT DESIGN (HYBRID):
+            1. Desktop (lg:flex / lg:grid): Uses original horizontal tab bar + side-by-side dashboard image & feature list.
+            2. Mobile (lg:hidden): Uses Accordion Card List for intuitive vertical scrolling on mobile.
+          - IF USER / PM WANTS TO REVERT MOBILE BACK TO ORIGINAL HORIZONTAL TAB BAR (SLIDE LIKE INITIAL DESIGN):
+            1. Remove "hidden lg:flex" from the Desktop Tab Buttons Container (change to "flex").
+            2. Remove "hidden lg:grid" from the Desktop Content Display Area (change to "grid").
+            3. Delete or hide the Mobile Accordion View div ("lg:hidden").
+        */}
+
+        {/* Desktop Tab Buttons Container (hidden on mobile, visible lg:flex) */}
         <div
           role="tablist"
           aria-label="Operational Software Categories"
-          className="bg-[#FCFCFC] p-2 rounded-xl border border-[#D9D9D9] flex flex-row items-center gap-3 overflow-x-auto no-scrollbar scroll-smooth"
+          className="hidden lg:flex bg-[#FCFCFC] p-2 rounded-xl border border-[#D9D9D9] flex-row items-center gap-3 overflow-x-auto no-scrollbar scroll-smooth"
         >
           {tabs.map((tab) => {
             const isActive = tab.id === activeTabId;
@@ -133,16 +144,16 @@ export const OperationalSoftwareTabs: React.FC = () => {
           })}
         </div>
 
-        {/* Tab Content Display Area */}
+        {/* Desktop Active Tab Content Display Area (hidden on mobile, visible lg:grid) */}
         <div
           role="tabpanel"
           id={`tabpanel-${activeTab.id}`}
           aria-labelledby={`tab-${activeTab.id}`}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center pt-2"
+          className="hidden lg:grid grid-cols-12 gap-16 items-center pt-2"
         >
           {/* Left Column: Dashboard Image */}
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[614px] h-[320px] sm:h-[443px] rounded-xl overflow-hidden border border-[#D9D9D9]">
+          <div className="col-span-6 flex justify-center">
+            <div className="relative w-full max-w-[614px] h-[443px] rounded-xl overflow-hidden border border-[#D9D9D9] bg-[#FAF9F9] flex items-center justify-center">
               <img
                 src={activeTab.imageSrc}
                 alt={`${activeTab.title} Operational Dashboard Software Interface`}
@@ -152,14 +163,14 @@ export const OperationalSoftwareTabs: React.FC = () => {
           </div>
 
           {/* Right Column: Points Features */}
-          <div className="lg:col-span-6 flex flex-col gap-6 sm:gap-8">
+          <div className="col-span-6 flex flex-col gap-8">
             <div className="flex flex-col gap-6">
               {activeTab.features.map((feature, idx) => (
                 <div key={idx} className="flex flex-col gap-2">
-                  <h3 className="text-2xl sm:text-[28px] lg:text-3xl font-semibold text-black font-inter-tight leading-tight">
+                  <h3 className="text-3xl font-semibold text-black font-inter-tight leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-lg sm:text-xl lg:text-2xl font-normal text-[#262626] leading-relaxed sm:leading-[36px] font-inter-tight">
+                  <p className="text-2xl font-normal text-[#262626] leading-[36px] font-inter-tight">
                     {feature.description}
                   </p>
                 </div>
@@ -176,7 +187,7 @@ export const OperationalSoftwareTabs: React.FC = () => {
                 <Button
                   variant="outline-primary"
                   size="large"
-                  className="!w-full sm:!w-auto !px-8 !h-[56px] !rounded-[8px] !text-xl !font-medium justify-center"
+                  className="!px-8 !h-[56px] !rounded-[8px] !text-xl !font-medium justify-center"
                   iconRight={
                     <i className="fi fi-rr-angle-small-right text-[#C02026] text-xl ml-1 inline-flex items-center" />
                   }
@@ -186,6 +197,87 @@ export const OperationalSoftwareTabs: React.FC = () => {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Accordion View (visible on mobile lg:hidden, intuition-focused UX) */}
+        <div className="flex flex-col gap-4 lg:hidden">
+          {tabs.map((tab) => {
+            const isOpen = activeTabId === tab.id;
+            return (
+              <div
+                key={tab.id}
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isOpen ? "border-[#C02026] bg-[#FCFCFC]" : "border-[#D9D9D9] bg-white"
+                }`}
+              >
+                {/* Accordion Title Header */}
+                <button
+                  onClick={() => setActiveTabId(isOpen ? "" : tab.id)}
+                  className={`w-full p-4 sm:p-5 flex items-center justify-between text-left transition-colors ${
+                    isOpen ? "bg-[#F9E9E9] text-[#C02026]" : "text-[#262626] hover:bg-gray-50"
+                  }`}
+                >
+                  <span className="text-lg sm:text-xl font-semibold font-inter-tight pr-3">
+                    {tab.title}
+                  </span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                    isOpen ? "rotate-180 bg-[#C02026] text-white" : "bg-gray-100 text-[#262626]"
+                  }`}>
+                    <i className="fi fi-rr-angle-small-down text-base" />
+                  </div>
+                </button>
+
+                {/* Accordion Content Details */}
+                {isOpen && (
+                  <div className="p-4 sm:p-6 flex flex-col gap-6 border-t border-[#D9D9D9]/60">
+                    {/* Uncropped Fit Image */}
+                    <div className="relative w-full rounded-xl overflow-hidden border border-[#D9D9D9] bg-[#FAF9F9] p-1.5 flex items-center justify-center">
+                      <img
+                        src={tab.imageSrc}
+                        alt={`${tab.title} Interface`}
+                        className="w-full h-auto object-contain rounded-lg"
+                      />
+                    </div>
+
+                    {/* Features List */}
+                    <div className="flex flex-col gap-5">
+                      {tab.features.map((feature, fIdx) => (
+                        <div key={fIdx} className="flex flex-col gap-1.5">
+                          <h3 className="text-xl font-semibold text-black font-inter-tight leading-snug">
+                            {feature.title}
+                          </h3>
+                          <p className="text-base font-normal text-[#262626] leading-relaxed font-inter-tight">
+                            {feature.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <div>
+                      <a
+                        href={getWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={tab.ctaText}
+                      >
+                        <Button
+                          variant="outline-primary"
+                          size="large"
+                          className="!w-full !px-6 !h-[52px] !rounded-[8px] !text-lg !font-medium justify-center"
+                          iconRight={
+                            <i className="fi fi-rr-angle-small-right text-[#C02026] text-lg ml-1 inline-flex items-center" />
+                          }
+                        >
+                          {tab.ctaText}
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

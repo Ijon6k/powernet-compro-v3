@@ -42,16 +42,16 @@ export const DiscoverySection: React.FC = () => {
           </div>
 
           {/* Right Visual Graphic Column */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end pl-8 sm:pl-16 lg:pl-24">
-            <div className="relative w-full max-w-[702px] min-h-[340px] sm:h-[445px] rounded-[20px] border border-[#D9D9D9]">
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-end sm:pl-16 lg:pl-24">
+            <div className="relative w-full max-w-[702px] rounded-[20px] border border-[#D9D9D9] bg-[#FAF9F9] flex flex-col items-center justify-center p-1 sm:p-0">
               <img
                 src="/photos/discovery-session.webp"
                 alt="Discovery and Planning Session"
-                className="w-full h-full object-cover rounded-[20px] overflow-hidden"
+                className="w-full h-auto sm:h-[445px] object-contain sm:object-cover rounded-[20px] overflow-hidden"
               />
 
-              {/* Floating Requirement Document Card - Centered Vertically, Offset Left & Subtle Float */}
-              <div className="absolute -left-8 sm:-left-16 lg:-left-24 top-1/2 -translate-y-1/2 w-[85%] max-w-[280px] sm:max-w-[310px] bg-white rounded-[16px] border-[3.5px] border-[#F0D5D7] p-4 sm:p-5 flex flex-col gap-3.5 z-10 transition-all duration-300 hover:scale-[1.02] animate-float-subtle">
+              {/* Requirement Document Card - Stacked below image on Mobile, Floating on Desktop */}
+              <div className="relative sm:absolute mt-3 sm:mt-0 -left-0 sm:-left-16 lg:-left-24 sm:top-1/2 sm:-translate-y-1/2 w-full sm:w-[85%] sm:max-w-[310px] bg-white rounded-[16px] border-[3.5px] border-[#F0D5D7] p-4 sm:p-5 flex flex-col gap-3.5 z-10 transition-all duration-300 hover:scale-[1.02] sm:animate-float-subtle">
                 <div className="flex flex-col gap-1">
                   <h4 className="text-base sm:text-lg font-semibold text-[#262626] font-inter-tight leading-snug">
                     Requirement document
@@ -61,7 +61,7 @@ export const DiscoverySection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Badges & Dots - Matching Figma Screenshot */}
+                {/* Badges & Dots */}
                 <div className="flex flex-col gap-2.5">
                   <div className="bg-[#E6FEE7] rounded-full px-3.5 py-1.5 flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#00AA0B] flex-shrink-0 animate-pulse-dot" />

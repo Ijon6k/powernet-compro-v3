@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -21,6 +21,21 @@ interface NavLink {
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks: NavLink[] = [
     { label: "About Us", href: "#about" },
@@ -89,12 +104,20 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#D9D9D9]/50 w-full">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        isScrolled || mobileMenuOpen
+          ? "bg-white/95 backdrop-blur-md border-b border-[#D9D9D9]/50"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-20 h-[80px] lg:h-[100px] flex items-center justify-between">
         {/* Left Brand Container */}
         <div className="flex items-center gap-8 lg:gap-12 xl:gap-14">
-          {/* Logo Container with vertical divider (1px neutral 5 #D9D9D9) */}
-          <div className="pr-8 lg:pr-12 border-r border-[#D9D9D9] flex items-center h-9 lg:h-[44px]">
+          {/* Logo Container with vertical divider */}
+          <div className={`pr-8 lg:pr-12 border-r flex items-center h-9 lg:h-[44px] transition-colors ${
+            isScrolled || mobileMenuOpen ? "border-[#D9D9D9]" : "border-white/30"
+          }`}>
             {/* POWERNET Official SVG Logo */}
             <a href="#about" aria-label="POWERNET Home">
               <img
@@ -113,11 +136,19 @@ export const Navbar: React.FC = () => {
               <div key={idx} className="relative group py-6">
                 <a
                   href={link.href}
-                  className="text-base sm:text-lg lg:text-xl font-normal text-[#262626] font-inter-tight hover:text-[#C02026] flex items-center gap-2 transition-colors whitespace-nowrap"
+                  className={`text-base sm:text-lg lg:text-xl font-normal font-inter-tight flex items-center gap-2 transition-colors whitespace-nowrap ${
+                    isScrolled || mobileMenuOpen
+                      ? "text-[#262626] hover:text-[#C02026]"
+                      : "text-white hover:text-white/80"
+                  }`}
                 >
                   <span>{link.label}</span>
                   {link.hasDropdown && (
-                    <i className="fi fi-rr-angle-small-down text-base text-[#262626] group-hover:text-[#C02026] transition-transform duration-200 group-hover:rotate-180 mt-0.5" />
+                    <i className={`fi fi-rr-angle-small-down text-base transition-transform duration-200 group-hover:rotate-180 mt-0.5 ${
+                      isScrolled || mobileMenuOpen
+                        ? "text-[#262626] group-hover:text-[#C02026]"
+                        : "text-white group-hover:text-white/80"
+                    }`} />
                   )}
                 </a>
 
@@ -174,7 +205,11 @@ export const Navbar: React.FC = () => {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="xl:hidden p-2 text-[#262626] hover:text-[#C02026] focus:outline-none"
+          className={`xl:hidden p-2 focus:outline-none transition-colors ${
+            isScrolled || mobileMenuOpen
+              ? "text-[#262626] hover:text-[#C02026]"
+              : "text-white hover:text-white/80"
+          }`}
           aria-label="Toggle navigation menu"
         >
           <i

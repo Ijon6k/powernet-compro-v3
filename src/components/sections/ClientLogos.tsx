@@ -7,16 +7,16 @@ interface ClientLogo {
 
 export const ClientLogos: React.FC = () => {
   const logos: ClientLogo[] = [
-    { name: "BCA", src: "/logo/Property 1=BCAlogo.svg" },
-    { name: "BERCA", src: "/logo/Property 1=BERCAlogo.svg" },
-    { name: "Bank JAKARTA", src: "/logo/Property 1=Bank JAKARTAlogo.svg" },
-    { name: "HUAWEI", src: "/logo/Property 1=HUAWEIlogo.svg" },
-    { name: "ISS", src: "/logo/Property 1=ISSlogo.svg" },
-    { name: "KPI", src: "/logo/Property 1=KPIlogo.svg" },
-    { name: "Kemenkes", src: "/logo/Property 1=Kemenkeslogo.svg" },
-    { name: "SDM POLRI", src: "/logo/Property 1=SDM POLRIlogo.svg" },
-    { name: "Unilever", src: "/logo/Property 1=Unileverlogo.svg" },
-    { name: "WIKA", src: "/logo/Property 1=WIKAlogo.svg" },
+    { name: "BCA", src: "/logo/bca.svg" },
+    { name: "BERCA", src: "/logo/berca.svg" },
+    { name: "Bank JAKARTA", src: "/logo/bank-jakarta.svg" },
+    { name: "HUAWEI", src: "/logo/huawei.svg" },
+    { name: "ISS", src: "/logo/iss.svg" },
+    { name: "KPI", src: "/logo/kpi.svg" },
+    { name: "Kemenkes", src: "/logo/kemenkes.svg" },
+    { name: "SDM POLRI", src: "/logo/sdm-polri.svg" },
+    { name: "Unilever", src: "/logo/unilever.svg" },
+    { name: "WIKA", src: "/logo/wika.svg" },
   ];
 
   // Duplicate logos array twice for seamless infinite scrolling loop
