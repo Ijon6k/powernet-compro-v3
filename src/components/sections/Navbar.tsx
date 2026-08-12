@@ -37,58 +37,58 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks: NavLink[] = [
-    { label: "About Us", href: "#about" },
+    { label: "About Us", href: "/#about" },
     {
       label: "Service",
-      href: "#service",
+      href: "/#service",
       hasDropdown: true,
       dropdownItems: [
         {
           title: "Server & Infrastructure",
           desc: "High uptime hardware monitoring & cloud scaling",
-          href: "#service",
+          href: "/#service",
         },
         {
           title: "Drone Solutions",
           desc: "Aerial mapping & field monitoring data collection",
-          href: "#service",
+          href: "/#service",
         },
         {
           title: "Custom Software",
           desc: "Operational software shaped around your workflow",
-          href: "#service",
+          href: "/#service",
         },
         {
           title: "Blockchain Application",
           desc: "End-to-end transparent & tamper-resistant tracking",
-          href: "#service",
+          href: "/#service",
         },
       ],
     },
     {
       label: "Products",
-      href: "#products",
+      href: "/#products",
       hasDropdown: true,
       dropdownItems: [
         {
           title: "Waste Management Supply Chain",
           desc: "Real-time B3 waste tracking & KLHK compliance",
-          href: "#products",
+          href: "/#products",
         },
         {
           title: "Class Learning Management System",
           desc: "AI-powered integrity scoring & LMS suite",
-          href: "#products",
+          href: "/#products",
         },
         {
           title: "Open Source Docker Management",
           desc: "Container management platform for IT ops",
-          href: "#products",
+          href: "/#products",
         },
       ],
     },
-    { label: "Portofolio", href: "#portfolio" },
-    { label: "Case Study", href: "#case-study" },
+    { label: "Portofolio", href: "/#portfolio" },
+    { label: "Case Study", href: "/case-study" },
   ];
 
   const toggleMobileDropdown = (label: string) => {
@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
             isScrolled || mobileMenuOpen ? "border-[#D9D9D9]" : "border-white/30"
           }`}>
             {/* POWERNET Official SVG Logo */}
-            <a href="#about" aria-label="POWERNET Home">
+            <a href="/" aria-label="POWERNET Home">
               <img
                 src="/logo/LOGO.svg"
                 alt="POWERNET Logo"
