@@ -93,39 +93,41 @@ body {
 /* 1-Time Text Shimmer Animation (Runs once on load/render) */
 @keyframes textShimmerOnce {
   0% {
-    background-position: 200% 0;
+    background-position: 100% 0;
   }
   100% {
-    background-position: -200% 0;
+    background-position: 0% 0;
   }
 }
 
 .animate-text-shimmer-once {
-  background: linear-gradient(110deg, #C02026 35%, #E5A8BB 50%, #C02026 65%);
-  background-size: 200% 100%;
+  background: linear-gradient(110deg, #C02026 0%, #C02026 35%, #E5A8BB 50%, #C02026 65%, #C02026 100%);
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: textShimmerOnce 3s ease-in-out 1 forwards;
 }
 
-/* Slow & Subtle Repeating Text Shimmer Animation */
+/* Balanced Infinite Text Shimmer Animation */
 @keyframes textShimmerSubtle {
   0% {
-    background-position: 200% 0;
+    background-position: 100% 0;
   }
-  25%, 100% {
-    background-position: -200% 0;
+  40%, 100% {
+    background-position: 0% 0;
   }
 }
 
 .animate-text-shimmer-subtle {
-  background: linear-gradient(110deg, #C02026 35%, #E5A8BB 50%, #C02026 65%);
-  background-size: 200% 100%;
+  background: linear-gradient(110deg, #C02026 0%, #C02026 35%, #E5A8BB 50%, #C02026 65%, #C02026 100%);
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: textShimmerSubtle 8s ease-in-out infinite;
+  animation: textShimmerSubtle 5s ease-in-out infinite;
 }
 
 /* Scroll Reveal Animation (SEO Safe - Defaults to 100% visible during SSR/bots) */

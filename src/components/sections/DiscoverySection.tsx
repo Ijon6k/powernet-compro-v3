@@ -14,7 +14,7 @@ export const DiscoverySection: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-black leading-tight sm:leading-[1.2] font-inter-tight tracking-tight">
                 Starting With Discovery and Planning, at{" "}
                 <span className="relative inline-block font-bold">
-                  <span className="animate-text-shimmer-once inline-block">
+                  <span className="animate-text-shimmer-subtle inline-block">
                     No Upfront Cost
                   </span>
                   <svg
