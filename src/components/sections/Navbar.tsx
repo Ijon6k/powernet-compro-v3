@@ -88,7 +88,6 @@ export const Navbar: React.FC = () => {
       ],
     },
     { label: "Portofolio", href: "/#portfolio" },
-    { label: "Case Study", href: "/case-study" },
   ];
 
   const toggleMobileDropdown = (label: string) => {
