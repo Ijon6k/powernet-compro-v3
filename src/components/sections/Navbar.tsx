@@ -8,7 +8,6 @@ interface DropdownItem {
   title: string;
   desc: string;
   href: string;
-  icon: string;
 }
 
 interface NavLink {
@@ -48,25 +47,21 @@ export const Navbar: React.FC = () => {
           title: "Server & Infrastructure",
           desc: "High uptime hardware monitoring & cloud scaling",
           href: "#service",
-          icon: "fi-rr-time-twenty-four",
         },
         {
           title: "Drone Solutions",
           desc: "Aerial mapping & field monitoring data collection",
           href: "#service",
-          icon: "fi-rr-stats",
         },
         {
           title: "Custom Software",
           desc: "Operational software shaped around your workflow",
           href: "#service",
-          icon: "fi-rr-edit",
         },
         {
           title: "Blockchain Application",
           desc: "End-to-end transparent & tamper-resistant tracking",
           href: "#service",
-          icon: "fi-rr-[#C02026]",
         },
       ],
     },
@@ -79,19 +74,16 @@ export const Navbar: React.FC = () => {
           title: "Waste Management Supply Chain",
           desc: "Real-time B3 waste tracking & KLHK compliance",
           href: "#products",
-          icon: "fi-rr-recycle",
         },
         {
           title: "Class Learning Management System",
           desc: "AI-powered integrity scoring & LMS suite",
           href: "#products",
-          icon: "fi-rr-graduation-cap",
         },
         {
           title: "Open Source Docker Management",
           desc: "Container management platform for IT ops",
           href: "#products",
-          icon: "fi-rr-box-alt",
         },
       ],
     },
@@ -144,11 +136,21 @@ export const Navbar: React.FC = () => {
                 >
                   <span>{link.label}</span>
                   {link.hasDropdown && (
-                    <i className={`fi fi-rr-angle-small-down text-base transition-transform duration-200 group-hover:rotate-180 mt-0.5 ${
-                      isScrolled || mobileMenuOpen
-                        ? "text-[#262626] group-hover:text-[#C02026]"
-                        : "text-white group-hover:text-white/80"
-                    }`} />
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ease-out origin-center group-hover:rotate-180 ${
+                        isScrolled || mobileMenuOpen
+                          ? "text-[#262626] group-hover:text-[#C02026]"
+                          : "text-white group-hover:text-white/80"
+                      }`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
                   )}
                 </a>
 
@@ -160,19 +162,14 @@ export const Navbar: React.FC = () => {
                         <a
                           key={itemIdx}
                           href={item.href}
-                          className="p-3 rounded-xl hover:bg-[#F9E9E9]/60 flex items-start gap-3 transition-colors group/item"
+                          className="p-3 rounded-xl hover:bg-[#F9E9E9]/60 flex flex-col gap-0.5 transition-colors group/item"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#FDE8E8] flex items-center justify-center text-[#C02026] flex-shrink-0 mt-0.5 group-hover/item:bg-[#C02026] group-hover/item:text-white transition-colors">
-                            <i className={`fi ${item.icon} text-sm`} />
-                          </div>
-                          <div className="flex flex-col gap-0.5">
-                            <span className="text-base font-semibold text-[#262626] group-hover/item:text-[#C02026] font-inter-tight transition-colors">
-                              {item.title}
-                            </span>
-                            <span className="text-xs font-normal text-[#595959] font-inter-tight leading-snug">
-                              {item.desc}
-                            </span>
-                          </div>
+                          <span className="text-base font-semibold text-[#262626] group-hover/item:text-[#C02026] font-inter-tight transition-colors">
+                            {item.title}
+                          </span>
+                          <span className="text-xs font-normal text-[#595959] font-inter-tight leading-snug">
+                            {item.desc}
+                          </span>
                         </a>
                       ))}
                     </div>
@@ -194,7 +191,7 @@ export const Navbar: React.FC = () => {
             <Button
               variant="outline-accent"
               size="large"
-              className="!h-[54px] !px-6 !rounded-[10px] !text-[20px] !font-medium"
+              className="!h-[54px] !px-6 !rounded-full !text-[20px] !font-medium !bg-transparent !border-[#C02026] !text-[#C02026] hover:!bg-[#C02026]/10"
               iconRight={<i className="fi fi-rr-call-outgoing text-[#C02026] text-lg ml-1" />}
             >
               Contact Us
@@ -233,11 +230,19 @@ export const Navbar: React.FC = () => {
                       className="w-full text-lg font-medium text-[#262626] hover:text-[#C02026] flex items-center justify-between py-1"
                     >
                       <span>{link.label}</span>
-                      <i
-                        className={`fi fi-rr-angle-small-down text-base text-[#262626] transition-transform duration-200 ${
+                      <svg
+                        className={`w-4.5 h-4.5 text-[#262626] transition-transform duration-200 ease-out origin-center ${
                           openMobileDropdown === link.label ? "rotate-180 text-[#C02026]" : ""
                         }`}
-                      />
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
                     </button>
 
                     {/* Mobile Dropdown Sub-Items */}
@@ -248,13 +253,10 @@ export const Navbar: React.FC = () => {
                             key={itemIdx}
                             href={item.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-start gap-2.5 py-2 px-2.5 rounded-lg hover:bg-white text-sm font-medium text-[#262626] hover:text-[#C02026]"
+                            className="flex flex-col gap-0.5 py-2 px-2.5 rounded-lg hover:bg-white text-sm font-medium text-[#262626] hover:text-[#C02026]"
                           >
-                            <i className={`fi ${item.icon} text-[#C02026] mt-0.5 text-xs`} />
-                            <div className="flex flex-col">
-                              <span className="font-semibold text-sm">{item.title}</span>
-                              <span className="text-xs text-[#595959] font-normal">{item.desc}</span>
-                            </div>
+                            <span className="font-semibold text-sm">{item.title}</span>
+                            <span className="text-xs text-[#595959] font-normal">{item.desc}</span>
                           </a>
                         ))}
                       </div>
@@ -283,7 +285,7 @@ export const Navbar: React.FC = () => {
               <Button
                 variant="outline-accent"
                 size="medium"
-                className="w-full !rounded-[10px] !text-xl justify-center"
+                className="w-full !rounded-full !text-xl justify-center !bg-transparent !border-[#C02026] !text-[#C02026] hover:!bg-[#C02026]/10"
                 iconRight={<i className="fi fi-rr-call-outgoing text-[#C02026] text-lg ml-1" />}
               >
                 Contact Us

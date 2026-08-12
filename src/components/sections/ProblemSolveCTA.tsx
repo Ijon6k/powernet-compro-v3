@@ -26,11 +26,11 @@ export const ProblemSolveCTA: React.FC = () => {
               aria-label="Contact Our Team via WhatsApp"
             >
               <Button
-                variant="outline-primary"
+                variant="primary"
                 size="large"
-                className="!w-full sm:!w-auto !px-8 !h-[56px] !bg-white !rounded-[8px] !text-xl !font-medium justify-center"
+                className="!w-full sm:!w-auto !px-8 !h-[56px] !rounded-md !text-xl !font-medium justify-center !bg-[#C02026] !text-white hover:!bg-[#a81b20]"
                 iconRight={
-                  <i className="fi fi-rr-angle-small-right text-[#C02026] text-xl ml-1 inline-flex items-center" />
+                  <i className="fi fi-rr-angle-small-right text-white text-xl ml-1 inline-flex items-center" />
                 }
               >
                 Contact Our Team

@@ -153,11 +153,11 @@ export const OperationalSoftwareTabs: React.FC = () => {
         >
           {/* Left Column: Dashboard Image */}
           <div className="col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[614px] h-[443px] rounded-xl overflow-hidden border border-[#D9D9D9] bg-[#FAF9F9] flex items-center justify-center">
+            <div className="relative w-[614px] max-w-full h-[443px] rounded-xl overflow-hidden border border-[#D9D9D9] bg-[#FAF9F9] flex items-center justify-center flex-shrink-0">
               <img
                 src={activeTab.imageSrc}
                 alt={`${activeTab.title} Operational Dashboard Software Interface`}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-[614px] h-[443px] object-cover rounded-xl flex-shrink-0"
               />
             </div>
           </div>
@@ -220,10 +220,22 @@ export const OperationalSoftwareTabs: React.FC = () => {
                   <span className="text-lg sm:text-xl font-semibold font-inter-tight pr-3">
                     {tab.title}
                   </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 bg-[#C02026] text-white" : "bg-gray-100 text-[#262626]"
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-200 ${
+                    isOpen ? "bg-[#C02026]" : "bg-gray-100"
                   }`}>
-                    <i className="fi fi-rr-angle-small-down text-base" />
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ease-out origin-center ${
+                        isOpen ? "rotate-180 text-white" : "text-[#262626]"
+                      }`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
                   </div>
                 </button>
 

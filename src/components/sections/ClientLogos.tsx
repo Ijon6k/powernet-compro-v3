@@ -9,11 +9,12 @@ export const ClientLogos: React.FC = () => {
   const logos: ClientLogo[] = [
     { name: "BCA", src: "/logo/bca.svg" },
     { name: "BERCA", src: "/logo/berca.svg" },
-    { name: "Bank JAKARTA", src: "/logo/bank-jakarta.svg" },
+    { name: "Bank DKI", src: "/logo/bank-jakarta.svg" },
     { name: "HUAWEI", src: "/logo/huawei.svg" },
     { name: "ISS", src: "/logo/iss.svg" },
     { name: "KPI", src: "/logo/kpi.svg" },
     { name: "Kemenkes", src: "/logo/kemenkes.svg" },
+    { name: "Mulia Industry Group", src: "/logo/mulia-industry-group.svg" },
     { name: "SDM POLRI", src: "/logo/sdm-polri.svg" },
     { name: "Unilever", src: "/logo/unilever.svg" },
     { name: "WIKA", src: "/logo/wika.svg" },

@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     default: "POWERNET - Operational Technology & Custom Software Solutions",
     template: "%s | POWERNET",
   },
+  icons: {
+    icon: "/logo/LOGO.svg",
+    shortcut: "/logo/LOGO.svg",
+    apple: "/logo/LOGO.svg",
+  },
   description:
     "POWERNET builds operational technology designed around how your organization actually works. Specialized in Server & Infrastructure, Aerial Drone Solutions, and Enterprise Custom Software.",
   keywords: [
