@@ -9,122 +9,113 @@ export const Footer: React.FC = () => {
       <ProblemSolveCTA />
 
       {/* Main Footer Container */}
-      <div className="bg-white pt-16 sm:pt-20 pb-10 border-t border-gray-100">
-        <div className="mx-auto px-5 sm:px-10 max-w-screen-2xl">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 mb-16">
-            {/* LEFT: Contact Information */}
-            <address className="not-italic flex-1 w-full lg:w-fit lg:border-r lg:border-gray-200 lg:mr-20 xl:mr-24">
-              <h3 className="text-xl md:text-2xl font-semibold text-[#C02026] mb-6 sm:mb-8 font-inter-tight">
+      <div className="bg-white pt-16 sm:pt-20 pb-10 border-t border-[#D9D9D9]">
+        <div className="mx-auto px-5 sm:px-10 lg:px-16 max-w-[1440px]">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-0 mb-16 sm:mb-20">
+            {/* LEFT: Contact Information with vertical divider on desktop */}
+            <address className="not-italic w-full lg:w-1/2 lg:border-r lg:border-[#D9D9D9] lg:pr-12 xl:pr-20 lg:mr-8 xl:mr-12 flex flex-col justify-start items-start">
+              <h3 className="text-2xl font-semibold text-[#B82E59] mb-6 sm:mb-8 font-inter-tight leading-[36px]">
                 Get in Touch With Us
               </h3>
 
-              <div className="space-y-5 pl-1 sm:pl-3 font-medium text-lg sm:text-2xl">
-                <div className="flex items-center gap-4 text-gray-700">
-                  <i className="fi fi-rr-phone-call text-gray-900 text-lg sm:text-xl"></i>
+              <div className="space-y-6 sm:space-y-[28px] font-normal text-xl font-inter-tight">
+                <div className="flex items-center gap-4 text-[#262626]">
+                  <i className="fi fi-rr-phone-call text-[#262626] text-xl flex-shrink-0"></i>
                   <a
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm md:text-base hover:text-[#C02026] transition-colors"
+                    className="text-xl font-normal text-[#262626] hover:text-[#C02026] transition-colors font-inter-tight leading-[30px]"
                   >
                     +62 812-9819-2099
                   </a>
                 </div>
 
-                <div className="flex items-center gap-4 text-gray-700">
-                  <i className="fi fi-rr-envelope text-gray-900 text-lg sm:text-xl"></i>
+                <div className="flex items-center gap-4 text-[#262626]">
+                  <i className="fi fi-rr-envelope text-[#262626] text-xl flex-shrink-0"></i>
                   <a
                     href="mailto:marketing@powernet.co.id"
-                    className="text-sm md:text-base hover:text-[#C02026] transition-colors"
+                    className="text-xl font-normal text-[#262626] hover:text-[#C02026] transition-colors font-inter-tight leading-[30px]"
                   >
                     marketing@powernet.co.id
                   </a>
                 </div>
 
-                <div className="flex items-start gap-4 w-full sm:w-3/4 text-gray-700">
-                  <i className="fi fi-rr-marker text-gray-900 mt-1 text-lg sm:text-xl flex-shrink-0"></i>
-                  <p className="text-sm md:text-base leading-relaxed font-inter-tight">
-                    Menara Kadin Indonesia Jl. H.R. Rasuna Said Blok X-5 KAV. 2-3,
-                    Jakarta Selatan, DKI Jakarta
+                <div className="flex items-start gap-4 w-full text-[#262626]">
+                  <i className="fi fi-rr-marker text-[#262626] mt-1 text-xl flex-shrink-0"></i>
+                  <p className="text-xl font-normal text-[#262626] font-inter-tight leading-[30px]">
+                    Jl. Margonda Raya, Kota Depok, Jawa Barat
                   </p>
                 </div>
               </div>
             </address>
 
-            {/* RIGHT: Navigation Links matching POWERNET Context */}
+            {/* RIGHT: Navigation Links matching Reference Design */}
             <nav
               aria-label="Footer Navigation"
-              className="flex-1 flex flex-wrap items-start justify-between gap-x-8 sm:gap-x-10 lg:gap-x-16 gap-y-8 lg:pl-12"
+              className="w-full lg:w-1/2 flex flex-row flex-wrap items-start justify-start gap-12 sm:gap-16 lg:gap-[70px] lg:pl-6 xl:pl-10"
             >
-              <div className="w-fit">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 sm:mb-6 font-inter-tight">
-                  Services
+              {/* Service Column */}
+              <div className="w-fit flex flex-col justify-start items-start">
+                <h4 className="text-2xl font-semibold text-black mb-6 sm:mb-8 font-inter-tight leading-[36px]">
+                  Service
                 </h4>
-                <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg font-medium text-gray-500 font-inter-tight">
+                <ul className="space-y-6 sm:space-y-[35px] text-xl font-normal text-black font-inter-tight">
                   <li>
-                    <a href="#service" className="hover:text-[#C02026] transition-colors">
-                      Server &amp; Infrastructure
+                    <a
+                      href="/#service"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
+                    >
+                      Software Development
                     </a>
                   </li>
                   <li>
-                    <a href="#service" className="hover:text-[#C02026] transition-colors">
+                    <a
+                      href="/#service"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
+                    >
                       Drone Solutions
                     </a>
                   </li>
                   <li>
-                    <a href="#service" className="hover:text-[#C02026] transition-colors">
-                      Custom Software
+                    <a
+                      href="/#service"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
+                    >
+                      Server &amp; Infrastructure
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div className="w-fit">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 sm:mb-6 font-inter-tight">
+              {/* Products Column */}
+              <div className="w-fit flex flex-col justify-start items-start">
+                <h4 className="text-2xl font-semibold text-black mb-6 sm:mb-8 font-inter-tight leading-[36px]">
                   Products
                 </h4>
-                <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg font-medium text-gray-500 font-inter-tight">
+                <ul className="space-y-6 sm:space-y-[35px] text-xl font-normal text-black font-inter-tight">
                   <li>
-                    <a href="#products" className="hover:text-[#C02026] transition-colors">
+                    <a
+                      href="/#products"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
+                    >
                       Waste Management Supply Chain
                     </a>
                   </li>
                   <li>
-                    <a href="#products" className="hover:text-[#C02026] transition-colors">
-                      Class Learning Management System
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#products" className="hover:text-[#C02026] transition-colors">
-                      Open Source Docker Management
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="w-fit">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 sm:mb-6 font-inter-tight">
-                  Social Media
-                </h4>
-                <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg font-medium text-gray-500 font-inter-tight">
-                  <li>
                     <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#C02026] transition-colors"
+                      href="/#products"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
                     >
-                      Instagram
+                      Containo
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#C02026] transition-colors"
+                      href="/#products"
+                      className="text-xl font-normal text-black hover:text-[#C02026] transition-colors leading-[30px]"
                     >
-                      LinkedIn
+                      Learning Management System
                     </a>
                   </li>
                 </ul>
@@ -133,9 +124,9 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* COPYRIGHT */}
-          <div className="pt-6 border-t border-gray-100 text-center font-inter-tight">
-            <p className="text-base sm:text-lg text-gray-900 font-medium">
-              Copyright @ PowerNET {new Date().getFullYear()}. All rights reserved
+          <div className="pt-6 border-t border-[#D9D9D9] text-center font-inter-tight">
+            <p className="text-xl font-medium text-[#595959] leading-[30px]">
+              Copyright @ PowerNET 2026. All rights reserved
             </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -18,6 +19,9 @@ interface NavLink {
 }
 
 export const Navbar: React.FC = () => {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,6 +39,8 @@ export const Navbar: React.FC = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isSolidNav = !isHomePage || isScrolled || mobileMenuOpen;
 
   const navLinks: NavLink[] = [
     { label: "About Us", href: "/#about" },
@@ -87,7 +93,7 @@ export const Navbar: React.FC = () => {
         },
       ],
     },
-    { label: "Portofolio", href: "/#portfolio" },
+    { label: "Portofolio", href: "/porto" },
   ];
 
   const toggleMobileDropdown = (label: string) => {
@@ -97,7 +103,7 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        isScrolled || mobileMenuOpen
+        isSolidNav
           ? "bg-white/95 backdrop-blur-md border-b border-[#D9D9D9]/50"
           : "bg-transparent border-b border-transparent"
       }`}
@@ -106,9 +112,11 @@ export const Navbar: React.FC = () => {
         {/* Left Brand Container */}
         <div className="flex items-center gap-8 lg:gap-12 xl:gap-14">
           {/* Logo Container with vertical divider */}
-          <div className={`pr-8 lg:pr-12 border-r flex items-center h-9 lg:h-[44px] transition-colors ${
-            isScrolled || mobileMenuOpen ? "border-[#D9D9D9]" : "border-white/30"
-          }`}>
+          <div
+            className={`pr-8 lg:pr-12 border-r flex items-center h-9 lg:h-[44px] transition-colors ${
+              isSolidNav ? "border-[#D9D9D9]" : "border-white/30"
+            }`}
+          >
             {/* POWERNET Official SVG Logo */}
             <a href="/" aria-label="POWERNET Home">
               <img
@@ -128,7 +136,7 @@ export const Navbar: React.FC = () => {
                 <a
                   href={link.href}
                   className={`text-base sm:text-lg lg:text-xl font-normal font-inter-tight flex items-center gap-2 transition-colors whitespace-nowrap ${
-                    isScrolled || mobileMenuOpen
+                    isSolidNav
                       ? "text-[#262626] hover:text-[#C02026]"
                       : "text-white hover:text-white/80"
                   }`}
@@ -137,7 +145,7 @@ export const Navbar: React.FC = () => {
                   {link.hasDropdown && (
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ease-out origin-center group-hover:rotate-180 ${
-                        isScrolled || mobileMenuOpen
+                        isSolidNav
                           ? "text-[#262626] group-hover:text-[#C02026]"
                           : "text-white group-hover:text-white/80"
                       }`}
@@ -202,7 +210,7 @@ export const Navbar: React.FC = () => {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`xl:hidden p-2 focus:outline-none transition-colors ${
-            isScrolled || mobileMenuOpen
+            isSolidNav
               ? "text-[#262626] hover:text-[#C02026]"
               : "text-white hover:text-white/80"
           }`}

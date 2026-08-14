@@ -27,9 +27,14 @@ body {
   overflow-x: hidden;
 }
 
-/* User rule: NO SHADOWS (gada shadow) */
+/* User rule: NO SHADOWS (gada shadow by default) */
 *, *::before, *::after {
   box-shadow: none !important;
+}
+
+/* Explicit Gentle Card Shadow Utility */
+.gentle-shadow {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.07), 0px 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 /* Custom Utilities for precise styling from Figma */
