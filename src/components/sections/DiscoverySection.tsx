@@ -86,7 +86,7 @@ export const DiscoverySection: React.FC = () => {
                   <h4 className="text-xs sm:text-xl font-semibold text-[#262626] font-inter-tight leading-snug">
                     Requirement document
                   </h4>
-                  <p className=" text-sm font-regular text-[#595959] font-inter-tight leading-tight sm:leading-relaxed">
+                  <p className=" text-[8px] sm:text-sm font-regular text-[#595959] font-inter-tight leading-tight sm:leading-relaxed">
                     Turning business needs into clear technical requirements
                   </p>
                 </div>
