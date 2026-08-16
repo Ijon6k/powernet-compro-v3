@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!article) {
     return {
-      title: "Artikel Tidak Ditemukan | POWERNET",
+      title: "Artikel Tidak Ditemukan",
     };
   }
 
   return {
-    title: `${article.title} | POWERNET`,
+    title: article.title,
     description: article.summary,
     openGraph: {
       title: article.title,

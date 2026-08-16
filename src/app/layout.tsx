@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter_Tight, Archivo } from "next/font/google";
 import "./globals.css";
 
@@ -16,50 +16,68 @@ const archivo = Archivo({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#C02026",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://powernet.co.id"),
   title: {
     default: "POWERNET - Operational Technology & Custom Software Solutions",
     template: "%s | POWERNET",
   },
-  icons: {
-    icon: "/logo/LOGO.svg",
-    shortcut: "/logo/LOGO.svg",
-    apple: "/logo/LOGO.svg",
-  },
   description:
-    "POWERNET builds operational technology designed around how your organization actually works. Specialized in Server & Infrastructure, Aerial Drone Solutions, and Enterprise Custom Software.",
+    "POWERNET builds operational technology designed around how organizations work. Specialized in Server & Infrastructure, Drone Solutions, and Custom Software.",
   keywords: [
     "POWERNET",
-    "Operational Technology",
-    "Server Infrastructure",
-    "Drone Solutions",
-    "Custom Software Development",
+    "Operational Technology Indonesia",
+    "Custom Software Development Jakarta",
+    "Enterprise Server Infrastructure",
+    "Aerial Drone Solutions",
     "Waste Management Supply Chain",
-    "LMS Software",
+    "Learning Management System",
     "Docker Management",
     "IT Consultant Jakarta",
+    "System Integrator Indonesia",
   ],
-  authors: [{ name: "POWERNET Technology Team" }],
+  authors: [{ name: "POWERNET Technology Team", url: "https://powernet.co.id" }],
   creator: "POWERNET",
   publisher: "POWERNET Technology",
-  metadataBase: new URL("https://powernet.co.id"),
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "POWERNET - Operational Technology & Custom Software Solutions",
     description:
-      "POWERNET builds operational technology designed around how your organization actually works, reducing manual load and strengthening infrastructure.",
+      "POWERNET builds operational technology designed around how organizations work, reducing manual load and strengthening infrastructure.",
     url: "https://powernet.co.id",
     siteName: "POWERNET",
     locale: "id_ID",
     type: "website",
     images: [
       {
-        url: "https://placehold.co/1200x630/C02026/FFFFFF?text=POWERNET+Operational+Technology",
-        width: 1200,
-        height: 630,
-        alt: "POWERNET Operational Technology Solutions",
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "POWERNET - Operational Technology & Custom Software Solutions",
       },
     ],
   },
@@ -67,8 +85,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "POWERNET - Operational Technology & Custom Software Solutions",
     description:
-      "POWERNET builds operational technology designed around how your organization actually works.",
-    images: ["https://placehold.co/1200x630/C02026/FFFFFF?text=POWERNET"],
+      "POWERNET builds operational technology designed around how organizations work. Server & Infrastructure, Drone Solutions, Custom Software.",
+    images: ["/icon.png"],
   },
   robots: {
     index: true,
@@ -81,15 +99,19 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  category: "technology",
 };
 
-// JSON-LD Structured Data Schema for Google Search Engine Optimization
+// JSON-LD Structured Data Schema for Google Search Engine Optimization (Rich Snippets)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "POWERNET",
+  alternateName: ["POWERNET Technology", "PowerNET Indonesia"],
   url: "https://powernet.co.id",
-  logo: "https://placehold.co/181x44?text=POWERNET",
+  logo: "https://powernet.co.id/icon.png",
+  description:
+    "POWERNET builds operational technology designed around how your organization actually works. Specialized in Server & Infrastructure, Aerial Drone Solutions, and Custom Software Development.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+62-812-9819-2099",
@@ -100,14 +122,23 @@ const jsonLd = {
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Menara Kadin Indonesia Jl. H.R. Rasuna Said Blok X-5 KAV. 2-3",
+    streetAddress: "Jl. Margonda Raya, Kota Depok, Jawa Barat / Menara Kadin Indonesia, Jakarta Selatan",
     addressLocality: "Jakarta Selatan",
     addressRegion: "DKI Jakarta",
+    postalCode: "12950",
     addressCountry: "ID",
   },
   sameAs: [
     "https://www.instagram.com",
     "https://www.linkedin.com",
+  ],
+  knowsAbout: [
+    "Operational Technology",
+    "Server & Infrastructure Management",
+    "Aerial Drone Inspection & Mapping",
+    "Custom Enterprise Software Development",
+    "Supply Chain Management Systems",
+    "Learning Management Systems",
   ],
 };
 
