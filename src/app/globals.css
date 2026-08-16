@@ -16,6 +16,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {

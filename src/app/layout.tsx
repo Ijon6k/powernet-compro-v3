@@ -150,7 +150,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${interTight.variable} ${archivo.variable} h-full antialiased`}
+      className={`${interTight.variable} ${archivo.variable} h-full antialiased scroll-smooth`}
     >
       <head>
         <script
